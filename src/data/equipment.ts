@@ -102,7 +102,7 @@ export const equipment: Equipment[] = [
     status: "In service",
     description: "A class of diesel-electric attack submarines built in India under technology transfer, equipped for anti-surface and anti-submarine roles.",
     history: "Built by Mazagon Dock Shipbuilders in Mumbai with Naval Group support, the first boat, INS Kalvari, was commissioned in December 2017.",
-    specs: [{ label: "Crew", value: "Approx.  계  31".replace(" 계  ", "") }, { label: "Length", value: "67.5 m" }, { label: "Displacement", value: "Approx. 1,775 tonnes submerged" }, { label: "Propulsion", value: "Diesel-electric" }],
+    specs: [{ label: "Crew", value: "Approx. 31" }, { label: "Length", value: "67.5 m" }, { label: "Displacement", value: "Approx. 1,775 tonnes submerged" }, { label: "Propulsion", value: "Diesel-electric" }],
   },
   {
     id: "s-400",
