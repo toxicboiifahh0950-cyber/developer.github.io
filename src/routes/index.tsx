@@ -1,8 +1,7 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, Check, ChevronDown, CircleHelp, Crosshair, Gauge, Menu, Minus, Plus, Search, Shield, SlidersHorizontal, X } from "lucide-react";
+import { ArrowDown, ArrowRight, Check, CircleHelp, Crosshair, Gauge, Menu, Plus, Search, Shield, SlidersHorizontal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { categories, equipment, toggleCompareSelection, type Equipment } from "@/data/equipment";
@@ -137,7 +136,7 @@ function ArsenalPage() {
 }
 
 function EquipmentCard({ item, index, compared, compareDisabled, onOpen, onCompare }: { item: Equipment; index: number; compared: boolean; compareDisabled: boolean; onOpen: () => void; onCompare: () => void }) {
-  return <article className="catalog-card group min-w-0 border border-line bg-card transition-all duration-300 hover:-translate-y-1 hover:border-saffron/50 hover:shadow-[0_18px_40px_color-mix(in_oklab,var(--background)_30%,transparent)]" style={{ animationDelay: `${Math.min(index, 8) * 45}ms` }}>
+  return <article className="catalog-card group min-w-0 border border-line bg-card transition-all duration-300 hover:-translate-y-1 hover:border-saffron/50 hover:shadow-[0_18px_40px_color-mix(in_oklab,var(--background)_30%,transparent)]">
     <div className="relative aspect-video overflow-hidden bg-muted"><img src={item.image} alt={`${item.name} equipment`} width={1280} height={720} loading="lazy" className="catalog-image h-full w-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-background/65 via-transparent to-transparent"/><span className="absolute left-3 top-3 border border-background/20 bg-background/85 px-2.5 py-1 text-[9px] uppercase tracking-[.15em] text-foreground">{item.branch}</span><span className="absolute right-3 top-3 flex items-center gap-1.5 bg-background/85 px-2.5 py-1 text-[9px] uppercase tracking-wider text-muted-foreground"><span className={`size-1.5 rounded-full ${item.status === "In service" ? "bg-leaf" : "bg-saffron"}`} />{item.status}</span><button onClick={onCompare} disabled={compareDisabled} aria-label={compared ? `Remove ${item.name} from comparison` : `Add ${item.name} to comparison`} title={compareDisabled ? "Comparison supports up to three systems" : compared ? "Remove from comparison" : "Add to comparison"} className={`absolute bottom-3 right-3 flex size-9 items-center justify-center border transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${compared ? "border-saffron bg-saffron text-primary-foreground" : "border-background/30 bg-background/85 text-foreground hover:border-saffron hover:text-saffron"}`}>{compared ? <Check className="size-4"/> : <Plus className="size-4"/>}</button></div>
     <div className="p-4 md:p-5"><div className="mb-3 flex items-center justify-between gap-2"><span className="text-[9px] uppercase tracking-[.14em] text-saffron">{item.designation}</span><span className="text-[9px] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span></div><h3 className="font-display text-[28px] font-bold uppercase leading-none">{item.name}</h3><div className="mt-3 flex items-center gap-2 text-xs text-muted-foreground"><span>{item.category}</span><span className="size-1 rounded-full bg-line"/><span>{item.manufacturer}</span></div><div className="my-4 grid grid-cols-2 border-y border-line/80 py-3"><Metric label="Speed" value={item.speed}/><Metric label="Range" value={item.range}/></div><Button variant="ghost" onClick={onOpen} className="h-9 w-full justify-between rounded-none px-0 text-[10px] uppercase tracking-[.13em] text-foreground hover:bg-transparent hover:text-saffron">View specifications <ArrowRight className="size-4 transition-transform group-hover:translate-x-1"/></Button></div>
   </article>;
@@ -162,6 +161,6 @@ function EquipmentDetail({ item, compared, compareDisabled, onCompare }: { item:
   </>;
 }
 
-function DetailStat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+function DetailStat({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
   return <div className="border border-line bg-card p-3"><span className="flex items-center gap-2 text-[9px] uppercase tracking-[.12em] text-muted-foreground">{icon}{label}</span><span className="mt-2 block font-display text-xl uppercase">{value}</span></div>;
 }
