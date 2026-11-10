@@ -4,7 +4,7 @@ import { ArrowDown, ArrowRight, Check, CircleHelp, Crosshair, Gauge, Menu, Plus,
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { categories, equipment, toggleCompareSelection, type Equipment } from "@/data/equipment";
+import { categories, equipment, filterEquipment, toggleCompareSelection, type Equipment } from "@/data/equipment";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,17 +31,7 @@ function ArsenalPage() {
     const search = query.trim().toLowerCase();
     return search ? equipment.filter((item) => `${item.name} ${item.category} ${item.branch}`.toLowerCase().includes(search)).slice(0, 4) : [];
   }, [query]);
-  const filteredEquipment = useMemo(() => {
-    const search = query.trim().toLowerCase();
-    return equipment.filter((item) => {
-      const categoryMatch = activeCategory === "All"
-        || item.branch === activeCategory
-        || (activeCategory === "Guided Missiles" && item.group === "Guided missiles")
-        || (activeCategory === "Drones" && item.group === "Uncrewed");
-      const searchMatch = !search || `${item.name} ${item.category} ${item.branch} ${item.manufacturer}`.toLowerCase().includes(search);
-      return categoryMatch && searchMatch;
-    });
-  }, [activeCategory, query]);
+  const filteredEquipment = useMemo(() => filterEquipment(activeCategory, query), [activeCategory, query]);
   const compared = compareIds.map((id) => equipment.find((item) => item.id === id)).filter((item): item is Equipment => Boolean(item));
 
   const chooseSuggestion = (item: Equipment) => {
@@ -102,7 +92,7 @@ function ArsenalPage() {
           <p className="max-w-sm text-xs leading-5 text-muted-foreground">Browse selected platforms and systems across India’s armed forces. Compare publicly available specifications.</p>
         </div>
         <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
-          <div className="flex flex-wrap gap-2" aria-label="Filter by category">{categories.map((category) => <Button key={category} variant={activeCategory === category ? "default" : "outline"} onClick={() => setActiveCategory(category)} className={`h-9 rounded-none px-4 text-[10px] uppercase tracking-[.12em] ${activeCategory === category ? "" : "border-line text-muted-foreground hover:text-foreground"}`}>{category}</Button>)}</div>
+          <div className="flex flex-wrap gap-2" aria-label="Filter by category">{categories.map((category) => <Button key={category} variant={activeCategory === category ? "default" : "outline"} onClick={() => { setActiveCategory(category); setQuery(""); setShowSuggestions(false); }} className={`h-9 rounded-none px-4 text-[10px] uppercase tracking-[.12em] ${activeCategory === category ? "" : "border-line text-muted-foreground hover:text-foreground"}`}>{category}</Button>)}</div>
           <div className="flex items-center gap-3 text-xs text-muted-foreground"><span>{filteredEquipment.length} results</span><span className="h-4 w-px bg-line"/><Button variant="ghost" onClick={() => { setActiveCategory("All"); setQuery(""); setShowSuggestions(false); }} className="h-8 rounded-none px-1 text-[10px] uppercase tracking-wider text-muted-foreground hover:text-saffron">Reset filters <X className="ml-1 inline size-3" /></Button></div>
         </div>
         {filteredEquipment.length ? <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] gap-x-5 gap-y-8">{filteredEquipment.map((item, index) => <EquipmentCard key={item.id} item={item} index={index} compared={compareIds.includes(item.id)} compareDisabled={compareIds.length >= 3 && !compareIds.includes(item.id)} onOpen={() => setSelectedItem(item)} onCompare={() => setCompareIds((previous) => toggleCompareSelection(previous, item.id))} />)}</div> : <div className="flex min-h-64 flex-col items-center justify-center border border-dashed border-line text-center"><Search className="mb-4 size-7 text-muted-foreground"/><h3 className="font-display text-2xl uppercase">No systems found</h3><p className="mt-2 text-sm text-muted-foreground">Try another name or change your filters.</p></div>}
