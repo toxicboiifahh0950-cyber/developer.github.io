@@ -165,6 +165,18 @@ export const equipment: Equipment[] = [
 
 export const categories = ["All", "Army", "Air Force", "Navy", "Guided Missiles", "Drones"] as const;
 
+export function filterEquipment(category: (typeof categories)[number], query: string): Equipment[] {
+  const search = query.trim().toLowerCase();
+  return equipment.filter((item) => {
+    const categoryMatch = category === "All"
+      || item.branch === category
+      || (category === "Guided Missiles" && item.group === "Guided missiles")
+      || (category === "Drones" && item.group === "Uncrewed");
+    const searchMatch = !search || `${item.name} ${item.category} ${item.branch} ${item.manufacturer}`.toLowerCase().includes(search);
+    return categoryMatch && searchMatch;
+  });
+}
+
 export function toggleCompareSelection(selected: string[], id: string): string[] {
   if (selected.includes(id)) return selected.filter((item) => item !== id);
   if (selected.length >= 3) return selected;

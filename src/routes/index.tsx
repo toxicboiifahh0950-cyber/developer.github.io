@@ -4,7 +4,7 @@ import { ArrowDown, ArrowRight, Check, CircleHelp, Crosshair, Gauge, Menu, Plus,
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { categories, equipment, toggleCompareSelection, type Equipment } from "@/data/equipment";
+import { categories, equipment, filterEquipment, toggleCompareSelection, type Equipment } from "@/data/equipment";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,17 +31,7 @@ function ArsenalPage() {
     const search = query.trim().toLowerCase();
     return search ? equipment.filter((item) => `${item.name} ${item.category} ${item.branch}`.toLowerCase().includes(search)).slice(0, 4) : [];
   }, [query]);
-  const filteredEquipment = useMemo(() => {
-    const search = query.trim().toLowerCase();
-    return equipment.filter((item) => {
-      const categoryMatch = activeCategory === "All"
-        || item.branch === activeCategory
-        || (activeCategory === "Guided Missiles" && item.group === "Guided missiles")
-        || (activeCategory === "Drones" && item.group === "Uncrewed");
-      const searchMatch = !search || `${item.name} ${item.category} ${item.branch} ${item.manufacturer}`.toLowerCase().includes(search);
-      return categoryMatch && searchMatch;
-    });
-  }, [activeCategory, query]);
+  const filteredEquipment = useMemo(() => filterEquipment(activeCategory, query), [activeCategory, query]);
   const compared = compareIds.map((id) => equipment.find((item) => item.id === id)).filter((item): item is Equipment => Boolean(item));
 
   const chooseSuggestion = (item: Equipment) => {
