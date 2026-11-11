@@ -83,7 +83,7 @@ function ArsenalPage() {
           </div>
           <p className="mt-3 text-[10px] uppercase tracking-[.12em] text-muted-foreground">{equipment.length} systems catalogued <span className="mx-2 text-saffron">/</span> updated periodically</p>
         </div>
-        <div className="absolute bottom-0 right-5 hidden gap-8 border-l border-line/50 px-7 py-4 text-right md:flex"><span className="text-[9px] uppercase tracking-[.15em] text-muted-foreground">From land<br />to ocean</span><span className="font-display text-lg uppercase tracking-wide">01 <span className="text-saffron">/</span> 07</span></div>
+        <div className="absolute bottom-0 right-5 hidden gap-8 border-l border-line/50 px-7 py-4 text-right md:flex"><span className="text-[9px] uppercase tracking-[.15em] text-muted-foreground">From land<br />to ocean</span><span className="font-display text-lg uppercase tracking-wide">01 <span className="text-saffron">/</span> {String(equipment.length).padStart(2, "0")}</span></div>
       </section>
 
       <section id="collection" className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-20">
@@ -101,7 +101,7 @@ function ArsenalPage() {
       <section id="about" className="border-y border-line bg-card/50">
         <div className="mx-auto grid max-w-[1440px] gap-8 px-5 py-12 md:grid-cols-[1fr_auto] md:items-center md:px-10 md:py-14">
           <div className="flex gap-5"><div className="hidden h-16 w-1 shrink-0 bg-saffron sm:block"/><div><p className="mb-2 text-[10px] uppercase tracking-[.2em] text-saffron">About this archive</p><h2 className="font-display text-3xl font-bold uppercase">An evolving record.</h2><p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">A non-official, educational reference. Specifications are indicative and sourced from public reporting; programme status and capabilities may change.</p></div></div>
-          <div className="flex gap-8 border-t border-line pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0"><div><div className="font-display text-3xl font-bold">03</div><div className="mt-1 text-[9px] uppercase tracking-[.15em] text-muted-foreground">Services</div></div><div><div className="font-display text-3xl font-bold">07</div><div className="mt-1 text-[9px] uppercase tracking-[.15em] text-muted-foreground">Platforms</div></div><div><div className="font-display text-3xl font-bold text-leaf">IN</div><div className="mt-1 text-[9px] uppercase tracking-[.15em] text-muted-foreground">India</div></div></div>
+          <div className="flex gap-8 border-t border-line pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0"><div><div className="font-display text-3xl font-bold">03</div><div className="mt-1 text-[9px] uppercase tracking-[.15em] text-muted-foreground">Services</div></div><div><div className="font-display text-3xl font-bold">{equipment.length}</div><div className="mt-1 text-[9px] uppercase tracking-[.15em] text-muted-foreground">Systems</div></div><div><div className="font-display text-3xl font-bold text-leaf">IN</div><div className="mt-1 text-[9px] uppercase tracking-[.15em] text-muted-foreground">India</div></div></div>
         </div>
       </section>
 
