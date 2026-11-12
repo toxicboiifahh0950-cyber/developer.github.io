@@ -5,10 +5,41 @@ import kalvariImage from "@/assets/kalvari.jpg";
 import airDefenseImage from "@/assets/air-defense.jpg";
 import brahmosImage from "@/assets/brahmos.jpg";
 import rustomImage from "@/assets/rustom-uav.jpg";
-import aircraftArchiveImage from "@/assets/aircraft-archive.jpg";
-import landSystemsArchiveImage from "@/assets/land-systems-archive.jpg";
-import navalArchiveImage from "@/assets/naval-archive.jpg";
-import sensorsUncrewedArchiveImage from "@/assets/sensors-uncrewed-archive.jpg";
+
+import photo_rafale from "@/assets/equipment/rafale.jpg.asset.json";
+import photo_su_30mki from "@/assets/equipment/su-30mki.jpg.asset.json";
+import photo_mirage_2000i from "@/assets/equipment/mirage-2000i.jpg.asset.json";
+import photo_apache_ah64e from "@/assets/equipment/apache-ah64e.jpg.asset.json";
+import photo_chinook_ch47f from "@/assets/equipment/chinook-ch47f.jpg.asset.json";
+import photo_lch_prachand from "@/assets/equipment/lch-prachand.jpg.asset.json";
+import photo_dhruv_alh from "@/assets/equipment/dhruv-alh.jpg.asset.json";
+import photo_c17_globemaster_iii from "@/assets/equipment/c17-globemaster-iii.jpg.asset.json";
+import photo_c295 from "@/assets/equipment/c295.jpg.asset.json";
+import photo_t90_bhishma from "@/assets/equipment/t90-bhishma.jpg.asset.json";
+import photo_bmp2_sarath from "@/assets/equipment/bmp2-sarath.jpg.asset.json";
+import photo_k9_vajra from "@/assets/equipment/k9-vajra.jpg.asset.json";
+import photo_pinaka_mbrl from "@/assets/equipment/pinaka-mbrl.jpg.asset.json";
+import photo_dhanush_howitzer from "@/assets/equipment/dhanush-howitzer.jpg.asset.json";
+import photo_atags from "@/assets/equipment/atags.jpg.asset.json";
+import photo_m777_howitzer from "@/assets/equipment/m777-howitzer.jpg.asset.json";
+import photo_akash_system from "@/assets/equipment/akash-system.jpg.asset.json";
+import photo_astra_bvraam from "@/assets/equipment/astra-bvraam.jpg.asset.json";
+import photo_nag_atgm from "@/assets/equipment/nag-atgm.jpg.asset.json";
+import photo_mrsam from "@/assets/equipment/mrsam.jpg.asset.json";
+import photo_qrsam from "@/assets/equipment/qrsam.jpg.asset.json";
+import photo_agni_v from "@/assets/equipment/agni-v.jpg.asset.json";
+import photo_ins_vikramaditya from "@/assets/equipment/ins-vikramaditya.jpg.asset.json";
+import photo_visakhapatnam_class from "@/assets/equipment/visakhapatnam-class.jpg.asset.json";
+import photo_kolkata_class from "@/assets/equipment/kolkata-class.jpg.asset.json";
+import photo_shivalik_class from "@/assets/equipment/shivalik-class.jpg.asset.json";
+import photo_kamorta_class from "@/assets/equipment/kamorta-class.jpg.asset.json";
+import photo_arihant_class from "@/assets/equipment/arihant-class.jpg.asset.json";
+import photo_netra_aewc from "@/assets/equipment/netra-aewc.jpg.asset.json";
+import photo_swathi_wlr from "@/assets/equipment/swathi-wlr.jpg.asset.json";
+import photo_rohini_radar from "@/assets/equipment/rohini-radar.jpg.asset.json";
+import photo_whap_8x8 from "@/assets/equipment/whap-8x8.jpg.asset.json";
+import photo_sarvatra_bridge from "@/assets/equipment/sarvatra-bridge.jpg.asset.json";
+import photo_insas_rifle from "@/assets/equipment/insas-rifle.jpg.asset.json";
 
 export type Branch = "Army" | "Air Force" | "Navy";
 export type Equipment = {
@@ -172,7 +203,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Multirole fighter aircraft",
     group: "Aircraft",
-    image: aircraftArchiveImage,
+    image: photo_rafale.url,
     designation: "MULTIROLE · TWIN-ENGINE",
     speed: "Up to Mach 1.8",
     range: "Mission dependent",
@@ -191,7 +222,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Multirole fighter aircraft",
     group: "Aircraft",
-    image: aircraftArchiveImage,
+    image: photo_su_30mki.url,
     designation: "MULTIROLE · AIR SUPERIORITY",
     speed: "Up to Mach 2",
     range: "Mission dependent",
@@ -210,7 +241,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Multirole fighter aircraft",
     group: "Aircraft",
-    image: aircraftArchiveImage,
+    image: photo_mirage_2000i.url,
     designation: "SINGLE-ENGINE · MULTIROLE",
     speed: "Up to Mach 2.2",
     range: "Mission dependent",
@@ -229,7 +260,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Attack helicopter",
     group: "Aircraft",
-    image: aircraftArchiveImage,
+    image: photo_apache_ah64e.url,
     designation: "ATTACK HELICOPTER · TANDEM CREW",
     speed: "Approx. 280 km/h",
     range: "Mission dependent",
@@ -248,7 +279,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Heavy-lift helicopter",
     group: "Aircraft",
-    image: aircraftArchiveImage,
+    image: photo_chinook_ch47f.url,
     designation: "HEAVY-LIFT · TANDEM ROTOR",
     speed: "Approx. 300 km/h",
     range: "Mission dependent",
@@ -267,7 +298,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Light combat helicopter",
     group: "Aircraft",
-    image: aircraftArchiveImage,
+    image: photo_lch_prachand.url,
     designation: "INDIGENOUS · HIGH-ALTITUDE",
     speed: "Approx. 268 km/h",
     range: "Approx. 550 km",
@@ -286,7 +317,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Utility helicopter",
     group: "Aircraft",
-    image: aircraftArchiveImage,
+    image: photo_dhruv_alh.url,
     designation: "INDIGENOUS · MULTI-ROLE HELICOPTER",
     speed: "Approx. 290 km/h",
     range: "Approx. 630 km",
@@ -305,7 +336,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Strategic transport aircraft",
     group: "Aircraft",
-    image: aircraftArchiveImage,
+    image: photo_c17_globemaster_iii.url,
     designation: "HEAVY TRANSPORT · LONG RANGE",
     speed: "Approx. 830 km/h",
     range: "Payload dependent",
@@ -324,7 +355,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Tactical transport aircraft",
     group: "Aircraft",
-    image: aircraftArchiveImage,
+    image: photo_c295.url,
     designation: "TACTICAL AIRLIFT · MULTI-ROLE",
     speed: "Approx. 480 km/h",
     range: "Payload dependent",
@@ -343,7 +374,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Main battle tank",
     group: "Land systems",
-    image: landSystemsArchiveImage,
+    image: photo_t90_bhishma.url,
     designation: "ARMOURED VEHICLE · MAIN BATTLE TANK",
     speed: "Approx. 60 km/h",
     range: "Approx. 550 km",
@@ -362,7 +393,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Infantry fighting vehicle",
     group: "Land systems",
-    image: landSystemsArchiveImage,
+    image: photo_bmp2_sarath.url,
     designation: "ARMOURED VEHICLE · INFANTRY SUPPORT",
     speed: "Approx. 65 km/h",
     range: "Approx. 600 km",
@@ -381,7 +412,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Self-propelled artillery",
     group: "Artillery",
-    image: landSystemsArchiveImage,
+    image: photo_k9_vajra.url,
     designation: "155 MM · TRACKED ARTILLERY",
     speed: "Approx. 67 km/h",
     range: "System and ammunition dependent",
@@ -400,7 +431,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Multi-barrel rocket launcher",
     group: "Artillery",
-    image: landSystemsArchiveImage,
+    image: photo_pinaka_mbrl.url,
     designation: "INDIGENOUS · ROCKET ARTILLERY",
     speed: "—",
     range: "Variant dependent",
@@ -419,7 +450,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Towed artillery gun",
     group: "Artillery",
-    image: landSystemsArchiveImage,
+    image: photo_dhanush_howitzer.url,
     designation: "INDIGENOUS · TOWED ARTILLERY",
     speed: "—",
     range: "Ammunition dependent",
@@ -438,7 +469,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Advanced towed artillery gun",
     group: "Artillery",
-    image: landSystemsArchiveImage,
+    image: photo_atags.url,
     designation: "155 MM · INDIGENOUS PROGRAMME",
     speed: "—",
     range: "Ammunition dependent",
@@ -457,7 +488,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Lightweight towed artillery gun",
     group: "Artillery",
-    image: landSystemsArchiveImage,
+    image: photo_m777_howitzer.url,
     designation: "155 MM · LIGHTWEIGHT ARTILLERY",
     speed: "—",
     range: "Ammunition dependent",
@@ -476,7 +507,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Surface-to-air missile system",
     group: "Guided missiles",
-    image: landSystemsArchiveImage,
+    image: photo_akash_system.url,
     designation: "INDIGENOUS · AIR DEFENCE",
     speed: "—",
     range: "Variant dependent",
@@ -495,7 +526,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Air-to-air missile",
     group: "Guided missiles",
-    image: aircraftArchiveImage,
+    image: photo_astra_bvraam.url,
     designation: "INDIGENOUS · AIR-TO-AIR",
     speed: "Supersonic",
     range: "Variant dependent",
@@ -514,7 +545,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Anti-tank guided missile",
     group: "Guided missiles",
-    image: landSystemsArchiveImage,
+    image: photo_nag_atgm.url,
     designation: "INDIGENOUS · ANTI-ARMOUR",
     speed: "—",
     range: "Variant dependent",
@@ -533,7 +564,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Medium-range surface-to-air system",
     group: "Guided missiles",
-    image: landSystemsArchiveImage,
+    image: photo_mrsam.url,
     designation: "INDIA–ISRAEL · AIR DEFENCE",
     speed: "—",
     range: "Variant dependent",
@@ -552,7 +583,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Quick reaction surface-to-air system",
     group: "Guided missiles",
-    image: landSystemsArchiveImage,
+    image: photo_qrsam.url,
     designation: "INDIGENOUS · MOBILE AIR DEFENCE",
     speed: "—",
     range: "Public figures vary by trial configuration",
@@ -571,7 +602,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Strategic ballistic missile programme",
     group: "Guided missiles",
-    image: landSystemsArchiveImage,
+    image: photo_agni_v.url,
     designation: "INDIGENOUS · STRATEGIC SYSTEM",
     speed: "Not publicly specified",
     range: "Public estimates vary",
@@ -590,7 +621,7 @@ export const equipment: Equipment[] = [
     branch: "Navy",
     category: "Aircraft carrier",
     group: "Naval",
-    image: navalArchiveImage,
+    image: photo_ins_vikramaditya.url,
     designation: "AIRCRAFT CARRIER · INDIAN NAVY",
     speed: "Approx. 30 knots",
     range: "Operational range varies",
@@ -609,7 +640,7 @@ export const equipment: Equipment[] = [
     branch: "Navy",
     category: "Guided missile destroyer",
     group: "Naval",
-    image: navalArchiveImage,
+    image: photo_visakhapatnam_class.url,
     designation: "STEALTH · GUIDED MISSILE DESTROYER",
     speed: "Approx. 30 knots",
     range: "Publicly reported figures vary",
@@ -628,7 +659,7 @@ export const equipment: Equipment[] = [
     branch: "Navy",
     category: "Guided missile destroyer",
     group: "Naval",
-    image: navalArchiveImage,
+    image: photo_kolkata_class.url,
     designation: "STEALTH · GUIDED MISSILE DESTROYER",
     speed: "Approx. 30 knots",
     range: "Publicly reported figures vary",
@@ -647,7 +678,7 @@ export const equipment: Equipment[] = [
     branch: "Navy",
     category: "Stealth multi-role frigate",
     group: "Naval",
-    image: navalArchiveImage,
+    image: photo_shivalik_class.url,
     designation: "INDIGENOUS · MULTI-ROLE FRIGATE",
     speed: "Approx. 30 knots",
     range: "Publicly reported figures vary",
@@ -666,7 +697,7 @@ export const equipment: Equipment[] = [
     branch: "Navy",
     category: "Anti-submarine warfare corvette",
     group: "Naval",
-    image: navalArchiveImage,
+    image: photo_kamorta_class.url,
     designation: "INDIGENOUS · ASW CORVETTE",
     speed: "Approx. 25 knots",
     range: "Publicly reported figures vary",
@@ -685,7 +716,7 @@ export const equipment: Equipment[] = [
     branch: "Navy",
     category: "Nuclear-powered ballistic missile submarine",
     group: "Naval",
-    image: navalArchiveImage,
+    image: photo_arihant_class.url,
     designation: "INDIGENOUS · STRATEGIC SUBMARINE",
     speed: "Not publicly specified",
     range: "Not publicly specified",
@@ -704,7 +735,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "Airborne early warning aircraft",
     group: "Sensors & radar",
-    image: sensorsUncrewedArchiveImage,
+    image: photo_netra_aewc.url,
     designation: "AIRBORNE SURVEILLANCE · INDIGENOUS",
     speed: "Aircraft dependent",
     range: "Aircraft dependent",
@@ -723,7 +754,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Weapon locating radar",
     group: "Sensors & radar",
-    image: sensorsUncrewedArchiveImage,
+    image: photo_swathi_wlr.url,
     designation: "INDIGENOUS · COUNTER-BATTERY RADAR",
     speed: "—",
     range: "Publicly reported figures vary",
@@ -742,7 +773,7 @@ export const equipment: Equipment[] = [
     branch: "Air Force",
     category: "3D surveillance radar",
     group: "Sensors & radar",
-    image: sensorsUncrewedArchiveImage,
+    image: photo_rohini_radar.url,
     designation: "INDIGENOUS · AIR SURVEILLANCE",
     speed: "—",
     range: "Publicly reported figures vary",
@@ -761,7 +792,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Wheeled armoured platform",
     group: "Support systems",
-    image: landSystemsArchiveImage,
+    image: photo_whap_8x8.url,
     designation: "INDIGENOUS · MODULAR ARMOURED VEHICLE",
     speed: "Public figures vary by variant",
     range: "Public figures vary by variant",
@@ -780,7 +811,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Mobile bridging system",
     group: "Support systems",
-    image: landSystemsArchiveImage,
+    image: photo_sarvatra_bridge.url,
     designation: "INDIGENOUS · ENGINEER EQUIPMENT",
     speed: "Vehicle dependent",
     range: "—",
@@ -799,7 +830,7 @@ export const equipment: Equipment[] = [
     branch: "Army",
     category: "Service rifle family",
     group: "Small arms",
-    image: landSystemsArchiveImage,
+    image: photo_insas_rifle.url,
     designation: "INDIGENOUS · INFANTRY EQUIPMENT",
     speed: "—",
     range: "Not listed",
