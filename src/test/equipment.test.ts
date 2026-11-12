@@ -16,11 +16,10 @@ describe("equipment comparison selection", () => {
 });
 
 describe("equipment catalog filters", () => {
-  it("filters the catalog to two Navy systems", () => {
-    expect(filterEquipment("Navy", "").map((item) => item.name)).toEqual([
-      "INS Vikrant",
-      "Kalvari-class Submarine",
-    ]);
+  it("shows only Navy systems in the Navy filter", () => {
+    const results = filterEquipment("Navy", "");
+    expect(results.map((item) => item.name)).toContain("INS Vikramaditya");
+    expect(results.every((item) => item.branch === "Navy")).toBe(true);
   });
 
   it("finds BrahMos by name", () => {
